@@ -29,6 +29,27 @@ public class ListasEnlazadas {
         avisoFin("Lista creada correctamente");
     }
 
+    //Imprimir lista
+
+    public static void imprimirLista(){
+
+        boolean existeLista = cabeza != null;
+
+        if(!existeLista){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        Nodo auxiliar = cabeza;
+        int contador = 1;
+        while(auxiliar != null){
+            imprimirNodo(auxiliar,contador);
+            auxiliar = auxiliar.apuntador;
+            contador++;
+
+        }
+    }
+
     //Insercion de nodos
 
     public static void insertarAlInicio(){
@@ -53,24 +74,6 @@ public class ListasEnlazadas {
         imprimirNodo(auxiliar, -1);
     }
 
-    public static void imprimirLista(){
-
-        boolean existeLista = cabeza != null;
-
-        if(!existeLista){
-            mostrarError("La lista no existe");
-            return;
-        }
-
-        Nodo auxiliar = cabeza;
-        int contador = 1;
-        while(auxiliar != null){
-            imprimirNodo(auxiliar,contador);
-            auxiliar = auxiliar.apuntador;
-            contador++;
-
-        }
-    }
 
     public static void insertarAlFinal(){
 
@@ -137,6 +140,12 @@ public class ListasEnlazadas {
             return;
         }
 
+        if (cabeza.apuntador == null) {
+            cabeza = null;
+            System.out.println("Único elemento eliminado. La lista está vacía ahora.");
+            return;
+        }
+        
         Nodo auxiliar = cabeza;
         
         System.out.println("Nodo a eliminar: ");
@@ -155,5 +164,78 @@ public class ListasEnlazadas {
 
         auxiliar = null;
         avisoFin("Nodo eliminado correctamente");
+    }
+
+    public static void eliminarUltimo(){
+        
+        boolean existeLista = cabeza != null;
+
+        if(!existeLista){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        if (cabeza.apuntador == null) {
+            cabeza = null;
+            System.out.println("Único elemento eliminado. La lista está vacía ahora.");
+            return;
+        }
+
+        
+        Nodo auxiliar = cabeza;
+        Nodo penultimoNodo = new Nodo();
+
+        while(auxiliar.apuntador != null){
+            penultimoNodo = auxiliar;
+            auxiliar = auxiliar.apuntador;
+        }
+        
+        System.out.println("Nodo a eliminar: ");
+        imprimirNodo(auxiliar, -1);
+
+        int confirmacion = inputInt("Confirmar eliminacion (1 = Si) / (cualquier otro numero = No)");
+
+        if(confirmacion != 1){
+            System.out.println("Eliminacion cancelada");
+            return;
+        }
+
+        avisoInicio("Eliminando nodo...");
+        penultimoNodo.apuntador = null;
+        auxiliar = null;
+        avisoFin("Nodo eliminado correctamente");
+    }
+
+    public static void eliminarPorNombre(){
+
+        if(cabeza != null){
+            Nodo auxiliar = cabeza;
+            Nodo auxiliar1 = new Nodo();
+            String nombre = input("Ingrese el nombre a eliminar");
+
+            while((auxiliar != null) && (!auxiliar.nombre.equals(nombre))){
+                auxiliar1 = auxiliar;
+                auxiliar = auxiliar.apuntador;
+
+            }
+
+            if(auxiliar != null){
+                if(auxiliar == cabeza){
+                    cabeza = cabeza.apuntador;
+
+                } else {
+                    auxiliar1.apuntador = auxiliar.apuntador;
+                }
+
+                auxiliar = null;
+
+            } else {
+                System.out.println("No hay referencia");
+
+            }
+
+        }
+        
+
     }
 }
