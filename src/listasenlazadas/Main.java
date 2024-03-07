@@ -12,7 +12,9 @@ public class Main {
 
         while (true) {
             menu();
-            byte opcion = inputByte("Ingrese su opcion");
+            System.out.println("╔═══════════════════╗");
+            byte opcion = inputByte("║ Ingrese su opcion ║");
+            System.out.println("╚═══════════════════╝");
 
             switch (opcion) {
                 case 0 -> System.out.println("Saliendo...");
@@ -21,6 +23,7 @@ public class Main {
                 case 3 -> insertarAlInicio();
                 case 4 -> insertarAlFinal();
                 case 6 -> eliminarPrimero();
+                case 7 -> eliminarUltimo();
                 default -> System.out.println("Opcion invalida");
                     
             }
