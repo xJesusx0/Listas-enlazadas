@@ -137,6 +137,23 @@ public class ListasEnlazadas {
             return;
         }
 
+        Nodo auxiliar = cabeza;
+        
+        System.out.println("Nodo a eliminar: ");
+        imprimirNodo(auxiliar, -1);
 
+        int confirmacion = inputInt("Confirmar eliminacion (1 = Si) / (cualquier otro numero = No)");
+
+        if(confirmacion != 1){
+            System.out.println("Eliminacion cancelada");
+            return;
+        }
+
+
+        avisoInicio("Eliminando nodo...");
+        cabeza = auxiliar.apuntador;
+
+        auxiliar = null;
+        avisoFin("Nodo eliminado correctamente");
     }
 }
