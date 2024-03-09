@@ -12,9 +12,9 @@ public class Main {
 
         while (true) {
             menu();
-            System.out.println("╔═══════════════════╗");
-            byte opcion = inputByte("║ Ingrese su opcion ║");
-            System.out.println("╚═══════════════════╝");
+            
+            byte opcion = inputByte("╔═══ Ingrese su opcion");
+            
 
             switch (opcion) {
                 case 0 -> mostrarAviso("Saliendo...");
@@ -24,6 +24,12 @@ public class Main {
                 case 4 -> insertarAlFinal();
                 case 6 -> eliminarPrimero();
                 case 7 -> eliminarUltimo();
+                case 12 -> buscarPorNombre();
+                case 13 -> buscarPorSaldo();
+                case 14 -> buscarPorSaldoMayorA();
+                case 15 -> buscarPorSaldoMenorA();
+                case 16 -> buscarMayor();
+                case 17 -> buscarMenor();
                 default -> mostrarError("Opcion invalida");
                     
             }

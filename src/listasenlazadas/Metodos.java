@@ -233,7 +233,16 @@ public class Metodos {
         System.out.println("║  5 - Insertar entre dos nodos (X) ║");
         System.out.println("║  6 - Elminar primer nodo          ║");
         System.out.println("║  7 - Eliminar ultimo nodo         ║");
-        System.out.println("║  8 - Eliminar nodo por posicion(X)║");
+        System.out.println("║  8 - Eliminar nodo por Nombre     ║");
+        System.out.println("║  9 - Eliminar por saldo           ║");
+        System.out.println("║ 10 - Eliminar por saldo menor a   ║");
+        System.out.println("║ 11 - Eliminar por saldo mayor a   ║");
+        System.out.println("║ 12 - Buscar por nombre            ║");
+        System.out.println("║ 13 - Buscar por saldo             ║");
+        System.out.println("║ 14 - Buscar por saldo mayor a     ║");
+        System.out.println("║ 15 - Buscar por saldo menor a     ║");
+        System.out.println("║ 16 - Encontrar mayor              ║");
+        System.out.println("║ 17 - Encontrar menor              ║");
         System.out.println("╚═══════════════════════════════════╝");
     }
     

@@ -5,6 +5,7 @@ import static listasenlazadas.Metodos.*;
 import static listasenlazadas.Nodo.imprimirNodo;
 
 import listasenlazadas.Nodo.*;
+import static listasenlazadas.Estilos.*;
 
 public class ListasEnlazadas {
 
@@ -74,7 +75,6 @@ public class ListasEnlazadas {
         avisoFin("Nodo insertado al inicio correctamente");
         imprimirNodo(auxiliar, -1);
     }
-
 
     public static void insertarAlFinal(){
 
@@ -239,7 +239,213 @@ public class ListasEnlazadas {
             return;
         }
 
-        
+        String nombre = input("Ingrese el nombre a buscar");
+
+        Nodo auxiliar = cabeza;
+
+        int contador = 1;
+        int cantidadEncontrados = 0;
+
+        while(auxiliar != null){
+
+            if(auxiliar.nombre.equals(nombre)){
+                imprimirNodo(auxiliar,contador);
+                cantidadEncontrados++;
+            }
+    
+            auxiliar = auxiliar.apuntador;
+            contador++;
+
+        }
+
+        if(cantidadEncontrados == 0){
+            mostrarAviso("No se encontro ningun nodo");
+        }
+
+        System.out.println(GREEN + "Nodos encontrados: " + cantidadEncontrados + RESET);
 
     }
+
+    public static void buscarPorSaldo(){
+
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        int saldo = inputInt("Ingrese el saldo a buscar");
+
+        Nodo auxiliar = cabeza;
+
+        int contador = 1;
+        int cantidadEncontrados = 0;
+
+        while(auxiliar != null){
+
+            if(auxiliar.saldo == saldo){
+                imprimirNodo(auxiliar,contador);
+                cantidadEncontrados++;
+            }
+   
+            auxiliar = auxiliar.apuntador;
+            contador++;
+
+        }
+
+        if(cantidadEncontrados == 0){
+            mostrarAviso("No se encontro ningun nodo");
+            return;
+        }
+
+        System.out.println(GREEN + "Nodos encontrados: " + cantidadEncontrados + RESET);
+
+    }
+
+    public static void buscarPorSaldoMayorA(){
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        int saldo = inputInt("Ingrese el saldo a buscar");
+
+        Nodo auxiliar = cabeza;
+
+        int contador = 1;
+        int cantidadEncontrados = 0;
+
+        while(auxiliar != null){
+
+            if(auxiliar.saldo > saldo){
+                imprimirNodo(auxiliar,contador);
+                cantidadEncontrados++;
+            }
+   
+            auxiliar = auxiliar.apuntador;
+            contador++;
+
+        }
+
+        if(cantidadEncontrados == 0){
+            mostrarAviso("No se encontro ningun nodo");
+            return;
+        }
+
+        System.out.println(GREEN + "Nodos encontrados: " + cantidadEncontrados + RESET);
+
+    }
+
+    public static void buscarPorSaldoMenorA(){
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        int saldo = inputInt("Ingrese el saldo a buscar");
+
+        Nodo auxiliar = cabeza;
+
+        int contador = 1;
+        int cantidadEncontrados = 0;
+
+        while(auxiliar != null){
+
+            if(auxiliar.saldo < saldo){
+                imprimirNodo(auxiliar,contador);
+                cantidadEncontrados++;
+            }
+   
+            auxiliar = auxiliar.apuntador;
+            contador++;
+
+        }
+
+        if(cantidadEncontrados == 0){
+            mostrarAviso("No se encontro ningun nodo");
+            return;
+        }
+
+        System.out.println(GREEN + "Nodos encontrados: " + cantidadEncontrados + RESET);     
+    }
+    
+    public static void buscarSaldoRepetido(int saldo){
+
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        Nodo auxiliar = cabeza;
+
+        int contador = 1;
+        int cantidadEncontrados = 0;
+
+        while(auxiliar != null){
+
+            if(auxiliar.saldo == saldo){
+                imprimirNodo(auxiliar,contador);
+                cantidadEncontrados++;
+            }
+   
+            auxiliar = auxiliar.apuntador;
+            contador++;
+
+        }
+
+        if(cantidadEncontrados == 0){
+            mostrarAviso("No se encontro ningun nodo");
+            return;
+        }
+
+        System.out.println(GREEN + "Nodos encontrados: " + cantidadEncontrados + RESET);
+
+    }
+
+    public static void buscarMayor(){
+
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        Nodo auxiliar = cabeza;
+        int mayor = auxiliar.saldo;
+
+        while(auxiliar != null){
+            auxiliar = auxiliar.apuntador;
+
+            if(auxiliar.saldo > mayor){
+                mayor = auxiliar.saldo;
+
+            }
+        }
+
+        buscarSaldoRepetido(mayor);
+
+    }
+
+    public static void buscarMenor(){
+
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        Nodo auxiliar = cabeza;
+        int menor = auxiliar.saldo;
+
+        while(auxiliar != null){
+            auxiliar = auxiliar.apuntador;
+
+            if(auxiliar.saldo < menor){
+                menor = auxiliar.saldo;
+
+            }
+        }
+
+        buscarSaldoRepetido(menor);
+
+    }
+    // >
+    // <
 }
