@@ -434,7 +434,7 @@ public class ListasEnlazadas {
         Nodo auxiliar = cabeza;
         int menor = auxiliar.saldo;
 
-        while(auxiliar != null){
+        while(auxiliar.apuntador!= null){
             auxiliar = auxiliar.apuntador;
 
             if(auxiliar.saldo < menor){
