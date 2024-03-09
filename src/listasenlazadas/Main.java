@@ -17,14 +17,14 @@ public class Main {
             System.out.println("╚═══════════════════╝");
 
             switch (opcion) {
-                case 0 -> System.out.println("Saliendo...");
+                case 0 -> mostrarAviso("Saliendo...");
                 case 1 -> imprimirLista();
                 case 2 -> iniciarLista();
                 case 3 -> insertarAlInicio();
                 case 4 -> insertarAlFinal();
                 case 6 -> eliminarPrimero();
                 case 7 -> eliminarUltimo();
-                default -> System.out.println("Opcion invalida");
+                default -> mostrarError("Opcion invalida");
                     
             }
 
