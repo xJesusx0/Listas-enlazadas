@@ -2,18 +2,22 @@ package listasenlazadas;
 
 import java.util.Random;
 import java.util.Scanner;
-
+import static listasenlazadas.Estilos.*;
 
 public class Metodos {
 
     public static void mostrarError(String mensaje) {
-        System.out.println("Error: " + mensaje);
+        System.out.println(RED + BOLD + "Error: " + mensaje + RESET);
+    }
+
+    public static void mostrarAviso(String mensaje) {
+        System.out.println(YELLOW + BOLD + "Aviso: " + mensaje + RESET);
     }
 
     public static String input(String mensaje) {
         Scanner input = new Scanner(System.in);
         while (true) {
-            System.out.println(mensaje);
+            System.out.println(GREEN + mensaje + RESET);
             String UserInput = input.nextLine();
 
             if (!UserInput.trim().isEmpty()) {
@@ -234,10 +238,10 @@ public class Metodos {
     }
     
     public static void avisoInicio(String texto){
-        System.out.println("╔══ " + texto);
+        System.out.println(GREEN + "╔══ " + texto + RESET);
     }
 
     public static void avisoFin(String texto){
-        System.out.println("╚══ " + texto);
+        System.out.println(GREEN + "╚══ " + texto + RESET);
     }
 }
