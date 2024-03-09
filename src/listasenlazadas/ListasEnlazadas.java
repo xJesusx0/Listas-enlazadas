@@ -12,9 +12,8 @@ public class ListasEnlazadas {
 
     public static void iniciarLista(){
 
-        boolean existeLista = cabeza != null;
 
-        if(existeLista){
+        if(existeLista()){
             mostrarError("La lista ya ha sido creada");
             return;
         } 
@@ -29,13 +28,16 @@ public class ListasEnlazadas {
         avisoFin("Lista creada correctamente");
     }
 
+    public static boolean existeLista(){
+        return cabeza != null;
+    }
+
     //Imprimir lista
 
     public static void imprimirLista(){
 
-        boolean existeLista = cabeza != null;
 
-        if(!existeLista){
+        if(!existeLista()){
             mostrarError("La lista no existe");
             return;
         }
@@ -54,9 +56,8 @@ public class ListasEnlazadas {
 
     public static void insertarAlInicio(){
 
-        boolean existeLista = cabeza != null;
 
-        if(!existeLista){
+        if(!existeLista()){
             mostrarError("La lista no existe");
             return;
         } 
@@ -77,9 +78,8 @@ public class ListasEnlazadas {
 
     public static void insertarAlFinal(){
 
-        boolean existeLista = cabeza != null;
 
-        if(!existeLista){
+        if(!existeLista()){
             mostrarError("La lista no existe");
             return;
         }
@@ -105,9 +105,8 @@ public class ListasEnlazadas {
 
     public static void insertarEntreNodos(Nodo anterior, Nodo siguiente){
 
-        boolean existeLista = cabeza != null;
 
-        if(!existeLista){
+        if(!existeLista()){
             mostrarError("La lista no existe");
             return;
         }
@@ -133,19 +132,16 @@ public class ListasEnlazadas {
 
     public static void eliminarPrimero(){
         
-        boolean existeLista = cabeza != null;
 
-        if(!existeLista){
+        if(!existeLista()){
             mostrarError("La lista no existe");
             return;
         }
-
-        if (cabeza.apuntador == null) {
-            cabeza = null;
-            System.out.println("Único elemento eliminado. La lista está vacía ahora.");
-            return;
-        }
         
+        if(cabeza.apuntador == null){
+            mostrarAviso("Ultimo elemento de la lista");
+        }
+
         Nodo auxiliar = cabeza;
         
         System.out.println("Nodo a eliminar: ");
@@ -168,17 +164,14 @@ public class ListasEnlazadas {
 
     public static void eliminarUltimo(){
         
-        boolean existeLista = cabeza != null;
 
-        if(!existeLista){
+        if(!existeLista()){
             mostrarError("La lista no existe");
             return;
         }
 
-        if (cabeza.apuntador == null) {
-            cabeza = null;
-            System.out.println("Único elemento eliminado. La lista está vacía ahora.");
-            return;
+        if(cabeza.apuntador == null){
+            mostrarAviso("Ultimo elemento de la lista");
         }
 
         
@@ -235,6 +228,17 @@ public class ListasEnlazadas {
             }
 
         }
+        
+
+    }
+
+    public static void buscarPorNombre(){
+
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
         
 
     }
