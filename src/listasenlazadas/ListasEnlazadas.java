@@ -9,6 +9,8 @@ import static listasenlazadas.Estilos.*;
 
 public class ListasEnlazadas {
 
+    public static short respuesta;
+
     //Iniciar lista
 
     public static void iniciarLista(){
@@ -201,47 +203,144 @@ public class ListasEnlazadas {
 
     public static void eliminarPorNombre(){
 
-        if(cabeza != null){
-            Nodo auxiliar = cabeza;
-            Nodo auxiliar1 = new Nodo();
-            String nombre = input("Ingrese el nombre a eliminar");
-
-            while((auxiliar != null) && (!auxiliar.nombre.equals(nombre))){
-                auxiliar1 = auxiliar;
-                auxiliar = auxiliar.apuntador;
-
-            }
-
-            if(auxiliar != null){
-                if(auxiliar == cabeza){
-                    cabeza = cabeza.apuntador;
-
-                } else {
-                    auxiliar1.apuntador = auxiliar.apuntador;
-                }
-
-                auxiliar = null;
-
-            } else {
-                System.out.println("No hay referencia");
-
-            }
-
-        }
-        
-
-    }
-
-    public static void buscarPorNombre(){
-
         if(!existeLista()){
             mostrarError("La lista no existe");
             return;
         }
 
-        String nombre = input("Ingrese el nombre a buscar");
+        buscarPorNombre();
+
+        if(respuesta == 404){
+            return;
+        }
+
+        eliminarPorId();
+        
+    }
+
+    public static void eliminarPorSaldo(){
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        buscarPorSaldo();
+
+        if(respuesta == 404){
+            return;
+        }
+        
+        eliminarPorId();
+    }
+
+    public static void eliminarPorSaldoMayorA(){
+        
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        buscarPorSaldoMayorA();
+
+        if(respuesta == 404){
+            return;
+        }
+        
+        eliminarPorId();     
+    }
+
+    public static void eliminarPorSaldoMenorA(){
+        
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        buscarPorSaldoMenorA();
+
+        if(respuesta == 404){
+            return;
+        }
+        
+        eliminarPorId();     
+    }    
+
+    public static void eliminar(){
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        imprimirLista();
+
+        if(respuesta == 404){
+            return;
+        }
+        
+        eliminarPorId();
+
+    }
+
+    public static void eliminarPorId(){
+        
+        int indice = inputInt("Ingrese la id del nodo a eliminar");
 
         Nodo auxiliar = cabeza;
+        Nodo anterior = new Nodo();
+
+
+        int guia = 1;
+        while(auxiliar != null){
+            if(!(indice == guia)){
+                anterior = auxiliar;
+                auxiliar = auxiliar.apuntador;
+                guia++;
+                continue;
+            }    
+                
+
+            
+            if(auxiliar == cabeza){
+                eliminarPrimero();
+                return;
+            }
+
+            if(auxiliar.apuntador == null){
+                eliminarUltimo();
+                return;
+            }
+
+            System.out.println("Nodo a eliminar: ");
+            imprimirNodo(auxiliar, -1);
+
+
+            int confirmacion = inputInt("Confirmar eliminacion (1 = Si) / (cualquier otro numero = No)");
+
+            if(confirmacion != 1){
+                System.out.println("Eliminacion cancelada");
+                return;
+            }
+            avisoInicio("Eliminando nodo...");
+            anterior.apuntador = auxiliar.apuntador;
+            auxiliar = null;
+            avisoFin("Nodo eliminado correctamente");
+        
+        }
+    }
+    
+    
+    //Busqueda
+
+    public static void buscarPorNombre(){
+ 
+        if(!existeLista()){
+            mostrarError("La lista no existe");
+            return;
+        }
+
+        Nodo auxiliar = cabeza;
+
+        String nombre = input("Ingrese el nombre a buscar");
 
         int contador = 1;
         int cantidadEncontrados = 0;
@@ -260,9 +359,12 @@ public class ListasEnlazadas {
 
         if(cantidadEncontrados == 0){
             mostrarAviso("No se encontro ningun nodo");
+            respuesta = 404;
+            return;
         }
 
         System.out.println(GREEN + "Nodos encontrados: " + cantidadEncontrados + RESET);
+        respuesta = 200;
 
     }
 
@@ -294,11 +396,12 @@ public class ListasEnlazadas {
 
         if(cantidadEncontrados == 0){
             mostrarAviso("No se encontro ningun nodo");
+            respuesta = 404;
             return;
         }
 
         System.out.println(GREEN + "Nodos encontrados: " + cantidadEncontrados + RESET);
-
+        respuesta = 200;
     }
 
     public static void buscarPorSaldoMayorA(){
@@ -328,10 +431,12 @@ public class ListasEnlazadas {
 
         if(cantidadEncontrados == 0){
             mostrarAviso("No se encontro ningun nodo");
+            respuesta = 404;
             return;
         }
 
         System.out.println(GREEN + "Nodos encontrados: " + cantidadEncontrados + RESET);
+        respuesta = 200;
 
     }
 
@@ -362,10 +467,12 @@ public class ListasEnlazadas {
 
         if(cantidadEncontrados == 0){
             mostrarAviso("No se encontro ningun nodo");
+            respuesta = 404;
             return;
         }
 
-        System.out.println(GREEN + "Nodos encontrados: " + cantidadEncontrados + RESET);     
+        System.out.println(GREEN + "Nodos encontrados: " + cantidadEncontrados + RESET);
+        respuesta = 200;     
     }
     
     public static void buscarSaldoRepetido(int saldo){
@@ -448,4 +555,36 @@ public class ListasEnlazadas {
     }
     // >
     // <
+
+    //Extras
+
+    public static void promedioDeSueldos(){
+
+        Nodo auxiliar = cabeza;
+        int sumatoria = 0;
+        int cantidad = 0;
+
+        while (auxiliar.apuntador != null) {
+            sumatoria += auxiliar.saldo;
+            auxiliar = auxiliar.apuntador;
+            cantidad++;
+        }
+
+        System.out.println(GREEN + "El promedio es: " + (sumatoria/cantidad) + RESET);
+
+    }
+
+    public static void sumatoriaDeSueldos(){
+
+        Nodo auxiliar = cabeza;
+        int sumatoria = 0;
+
+        while (auxiliar.apuntador != null) {
+            sumatoria += auxiliar.saldo;
+            auxiliar = auxiliar.apuntador;
+        }
+
+        System.out.println(GREEN + "La sumatoria es: " + (sumatoria) + RESET);
+
+    }
 }

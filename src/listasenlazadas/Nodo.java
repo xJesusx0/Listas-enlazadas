@@ -13,7 +13,7 @@ public class Nodo {
         System.out.println("╠═$ Saldo: " + nodo.saldo);
         System.out.println("╠═$ Apuntador: " + nodo.apuntador);
         if(posicion != -1){
-            System.out.println("╠═$ Posicion: " + posicion);
+            System.out.println("╠═$ Id: " + posicion);
         }
         System.out.println("╚═════════════════════════╝");
     }

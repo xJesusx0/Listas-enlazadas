@@ -237,12 +237,15 @@ public class Metodos {
         System.out.println("║  9 - Eliminar por saldo           ║");
         System.out.println("║ 10 - Eliminar por saldo menor a   ║");
         System.out.println("║ 11 - Eliminar por saldo mayor a   ║");
-        System.out.println("║ 12 - Buscar por nombre            ║");
-        System.out.println("║ 13 - Buscar por saldo             ║");
-        System.out.println("║ 14 - Buscar por saldo mayor a     ║");
-        System.out.println("║ 15 - Buscar por saldo menor a     ║");
-        System.out.println("║ 16 - Encontrar mayor              ║");
-        System.out.println("║ 17 - Encontrar menor              ║");
+        System.out.println("║ 12 - Eliminar por id              ║");
+        System.out.println("║ 13 - Buscar por nombre            ║");
+        System.out.println("║ 14 - Buscar por saldo             ║");
+        System.out.println("║ 15 - Buscar por saldo mayor a     ║");
+        System.out.println("║ 16 - Buscar por saldo menor a     ║");
+        System.out.println("║ 17 - Encontrar mayor              ║");
+        System.out.println("║ 18 - Encontrar menor              ║");
+        System.out.println("║ 19 - Promedio de saldos           ║");
+        System.out.println("║ 20 - Sumatoria de saldos          ║");
         System.out.println("╚═══════════════════════════════════╝");
     }
     
