@@ -561,16 +561,17 @@ public class ListasEnlazadas {
     public static void promedioDeSueldos(){
 
         Nodo auxiliar = cabeza;
-        int sumatoria = 0;
-        int cantidad = 0;
+        double sumatoria = 0;
+        double cantidad = 0;
 
-        while (auxiliar.apuntador != null) {
+        while (auxiliar != null) {
             sumatoria += auxiliar.saldo;
             auxiliar = auxiliar.apuntador;
             cantidad++;
         }
 
-        System.out.println(GREEN + "El promedio es: " + (sumatoria/cantidad) + RESET);
+        double resultado = sumatoria/cantidad;
+        System.out.println(GREEN + "El promedio es: " + (resultado) + RESET);
 
     }
 
@@ -579,7 +580,7 @@ public class ListasEnlazadas {
         Nodo auxiliar = cabeza;
         int sumatoria = 0;
 
-        while (auxiliar.apuntador != null) {
+        while (auxiliar != null) {
             sumatoria += auxiliar.saldo;
             auxiliar = auxiliar.apuntador;
         }
