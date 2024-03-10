@@ -22,21 +22,21 @@ public class Main {
                 case 2 -> iniciarLista();
                 case 3 -> insertarAlInicio();
                 case 4 -> insertarAlFinal();
-                case 6 -> eliminarPrimero();
-                case 7 -> eliminarUltimo();
-                case 8 -> eliminarPorNombre();
-                case 9 -> eliminarPorSaldo();
-                case 10 -> eliminarPorSaldoMayorA();
-                case 11 -> eliminarPorSaldoMenorA();
-                case 12 -> eliminar();
-                case 13 -> buscarPorNombre();
-                case 14 -> buscarPorSaldo();
-                case 15 -> buscarPorSaldoMayorA();
-                case 16 -> buscarPorSaldoMenorA();
-                case 17 -> buscarMayor();
-                case 18 -> buscarMenor();
-                case 19 -> promedioDeSueldos();
-                case 20 -> sumatoriaDeSueldos();
+                case 5 -> eliminarPrimero();
+                case 6 -> eliminarUltimo();
+                case 7 -> eliminarPorNombre();
+                case 8 -> eliminarPorSaldo();
+                case 9 -> eliminarPorSaldoMayorA();
+                case 10 -> eliminarPorSaldoMenorA();
+                case 11 -> eliminar();
+                case 12 -> buscarPorNombre();
+                case 13 -> buscarPorSaldo();
+                case 14 -> buscarPorSaldoMayorA();
+                case 15 -> buscarPorSaldoMenorA();
+                case 16 -> buscarMayor();
+                case 17 -> buscarMenor();
+                case 18 -> promedioDeSueldos();
+                case 19 -> sumatoriaDeSueldos();
                 default -> mostrarError("Opcion invalida");
                     
             }
