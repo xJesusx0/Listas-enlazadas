@@ -234,8 +234,8 @@ public class Metodos {
         System.out.println("║  6 - Eliminar ultimo nodo         ║");
         System.out.println("║  7 - Eliminar nodo por Nombre     ║");
         System.out.println("║  8 - Eliminar por saldo           ║");
-        System.out.println("║  9 - Eliminar por saldo menor a   ║");
-        System.out.println("║ 10 - Eliminar por saldo mayor a   ║");
+        System.out.println("║  9 - Eliminar por saldo mayor a   ║");
+        System.out.println("║ 10 - Eliminar por saldo menor a   ║");
         System.out.println("║ 11 - Eliminar por id              ║");
         System.out.println("║ 12 - Buscar por nombre            ║");
         System.out.println("║ 13 - Buscar por saldo             ║");
